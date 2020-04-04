@@ -5,8 +5,10 @@ import java.util.Base64;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import com.scb.exam.springboot.bean.SwapResponse;
 
 @RestController
@@ -15,8 +17,18 @@ public class SwapExamRestController {
 	
 	public static String P_CHAR_SPLIT = "->";
 	
+	@PostMapping("/swap")
+	public ResponseEntity<SwapResponse> swapDataPostPost() {
+		return swapDataGet();
+	}
+	
+	@PostMapping("/swap/{linklist}")
+	public ResponseEntity<SwapResponse> swapDataPostInput(@PathVariable String linklist) {
+		return swapDataGetInput(linklist);
+	}
+	
 	@GetMapping("/swap")
-	public ResponseEntity<SwapResponse> findProductById() {
+	public ResponseEntity<SwapResponse> swapDataGet() {
 		SwapResponse resultObj = new SwapResponse();
 
 		//Output
@@ -27,7 +39,7 @@ public class SwapExamRestController {
 	}
 	
 	@GetMapping("/swap/{linklist}")
-	public ResponseEntity<SwapResponse> findProductById(@PathVariable String linklist) {
+	public ResponseEntity<SwapResponse> swapDataGetInput(@PathVariable String linklist) {
 		SwapResponse resultObj = new SwapResponse();
 		byte[] dataDecriptArr = null;
 		
