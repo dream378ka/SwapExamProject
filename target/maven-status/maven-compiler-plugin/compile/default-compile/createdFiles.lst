@@ -1,5 +1,4 @@
-com\example\springboot\ProductResponse.class
-com\example\springboot\Product.class
-com\example\springboot\HelloSpringBootController.class
-com\example\springboot\ProductController.class
-com\example\springboot\MyFirstSpringbootApplication.class
+com\scb\exam\springboot\bean\SwapResponse.class
+com\scb\exam\springboot\SpringbootApplication.class
+com\scb\exam\springboot\bean\DataBean.class
+com\scb\exam\springboot\rest\SwapExamRestController.class
