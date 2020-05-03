@@ -24,6 +24,6 @@ public class SpringbootApplication extends SpringBootServletInitializer {
 class HelloController {
 	@GetMapping("/")
 	String hello() {
-		return "hello word";
+		return "Hello SCB";
 	}
 }
