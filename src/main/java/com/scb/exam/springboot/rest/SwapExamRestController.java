@@ -2,13 +2,16 @@ package com.scb.exam.springboot.rest;
 
 import java.util.Base64;
 
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.scb.exam.springboot.bean.SwapRequest;
 import com.scb.exam.springboot.bean.SwapResponse;
 
 @RestController
@@ -17,6 +20,16 @@ public class SwapExamRestController {
 	
 	public static String P_CHAR_SPLIT = "->";
 	
+	@PostMapping(value = "/swapDataBody", consumes = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<SwapResponse> swapDataBodyPost(@RequestBody SwapRequest req) {
+		return swapDataGetInput(req.getLinklist());
+	}
+	
+	@GetMapping(value = "/swapDataBody", consumes = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<SwapResponse> swapDataBodyGet(@RequestBody SwapRequest req) {
+		return swapDataPostInput(req.getLinklist());
+	}
+
 	@PostMapping("/swap")
 	public ResponseEntity<SwapResponse> swapDataPostPost() {
 		return swapDataGet();
